@@ -1,14 +1,13 @@
 % Hechos
-jugador(mario, plataforma).  % jugador(Nombre, GeneroJuego)
+jugador(mario, plataforma). 
 jugador(luigi, plataforma).
 jugador(link, aventura).
-juega_en(mario, super_mario).  % juega_en(Jugador, Juego)
+juega_en(mario, super_mario).  
 juega_en(luigi, super_mario).
 juega_en(link, zelda).
 nivel(super_mario, facil).
 nivel(zelda, dificil).
 
-% Regla simple para unificación
 juega_genero(Jugador, Genero) :- jugador(Jugador, Genero), juega_en(Jugador, Juego).
 
 %consultas
@@ -16,11 +15,10 @@ juega_genero(Jugador, Genero) :- jugador(Jugador, Genero), juega_en(Jugador, Jue
 %juega_genero(Jugador, plataforma).
 %?- juega_genero(link, plataforma).
 
-% Agrega hechos con números
-puntos(mario, 50).  % puntos(Jugador, Cantidad)
+puntos(mario, 50).  
 puntos(luigi, 30).
 puntos(link, 70).
-tiempo_jugado(mario, 5).  % En horas
+tiempo_jugado(mario, 5). 
 
 % Procedimiento: Clasifica nivel de jugador basado en puntos (múltiples cláusulas)
 clasificacion(Jugador, Nivel) :- 
@@ -36,7 +34,7 @@ bono(Jugador, Bono) :-
     (0 is Puntos mod 2 -> Factor = 2 ; Factor = 1),  % Condicional simple
     Bono is Puntos * Factor.
 
-% Interactividad básica: Convierte horas a minutos (similar a TP2 pero en juegos)
+% Interactividad básica: Convierte horas a minutos
 horas_a_minutos(Horas, Minutos) :- Minutos is Horas * 60.
 
 %clasificacion(mario, N).
