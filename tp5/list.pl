@@ -37,6 +37,10 @@ longitud([_ | Cola], N) :-
     N is M + 1.
 
 %ejemplo
+%caso base, la suma de lista vacia es 0
+suma_elementos([],0).
+suma_elementos([Cabeza|Cola],Total):-
+    suma_elementos(Cola,Resto), Total is Cabeza + Resto.
 
 % Invertir una lista (desafío adicional)
 invertir([], []).
@@ -45,5 +49,5 @@ invertir([Cabeza | Cola], ListaInvertida) :-
     concatenar(RestoInvertido, [Cabeza], ListaInvertida).
 
 % Prueba
-?- invertir([1, 2, 3], X).  % X = [3, 2, 1]
+%?- invertir([1, 2, 3], X).  % X = [3, 2, 1]
 
